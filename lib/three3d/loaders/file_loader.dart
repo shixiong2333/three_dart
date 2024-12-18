@@ -165,11 +165,12 @@ class FileLoader extends Loader {
       }
     } else {
       // load assets file TODO
-      if (!url.startsWith("assets")) {
-        url = "assets/$url";
+      var httpUrl = url;
+      if (httpUrl.startsWith("assets")) {
+        httpUrl = "assets/$httpUrl";
       }
 
-      http.Response response = await http.get(Uri.parse(url));
+      http.Response response = await http.get(Uri.parse(httpUrl));
 
       if (response.statusCode != 200) {
         for (var i = 0, il = callbacks.length; i < il; i++) {
