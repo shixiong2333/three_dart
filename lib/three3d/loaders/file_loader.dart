@@ -165,7 +165,7 @@ class FileLoader extends Loader {
       }
     } else {
       // load assets file TODO
-      if (url.startsWith("assets")) {
+      if (!url.startsWith("assets")) {
         url = "assets/$url";
       }
 
